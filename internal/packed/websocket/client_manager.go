@@ -29,6 +29,7 @@ func NewClientManager() (clientManager *ClientManager) {
 		Clients:       make(map[*Client]bool),
 		Users:         make(map[string]*Client),
 		Register:      make(chan *Client, 1000),
+		Login:         make(chan *login, 1000),
 		Unregister:    make(chan *Client, 1000),
 		Broadcast:     make(chan *WResponse, 1000),
 		TagBroadcast:  make(chan *TagWResponse, 1000),

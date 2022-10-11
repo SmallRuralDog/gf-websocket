@@ -1,8 +1,8 @@
 package websocket
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/gogf/gf/v2/util/gconv"
 )
 
 const (
@@ -22,7 +22,7 @@ func ProcessData(client *Client, message []byte) {
 		}
 	}()
 	request := &request{}
-	err := gconv.Struct(message, request)
+	err := json.Unmarshal(message, request)
 	if err != nil {
 		fmt.Println("数据解析失败：", err)
 		return

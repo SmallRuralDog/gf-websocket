@@ -72,7 +72,7 @@ func (c *Client) read() {
 			return
 		}
 		// 处理程序
-		fmt.Println(message)
+		fmt.Println(string(message))
 		ProcessData(c, message)
 	}
 }
